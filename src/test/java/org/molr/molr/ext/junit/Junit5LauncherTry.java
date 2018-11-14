@@ -25,17 +25,9 @@ public class Junit5LauncherTry {
 
         //ExtensionContext.Namespace.create()
 
-        //LauncherConfig.builder().
-
         Launcher launcher = LauncherFactory.create();
-
-
-
         TestPlan testPlan = launcher.discover(request);
-
         testPlan.getRoots().forEach(e -> testPlan.getDescendants(e).stream().map(d -> d.getSource()).forEach(System.out::println));
-
-
     }
 
 }

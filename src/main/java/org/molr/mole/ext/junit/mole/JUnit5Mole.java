@@ -4,14 +4,11 @@ import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.TestPlan;
 import org.junit.platform.launcher.core.LauncherFactory;
 import org.molr.commons.domain.*;
-import org.molr.mole.core.api.Mole;
 import org.molr.mole.core.tree.AbstractJavaMole;
 import org.molr.mole.core.tree.MissionExecutor;
-import org.molr.mole.ext.junit.util.JunitMissions;
-import reactor.core.publisher.Flux;
+import org.molr.mole.ext.junit.util.Junit5Missions;
 
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -33,7 +30,7 @@ public class JUnit5Mole extends AbstractJavaMole {
 
     private MissionRepresentation representationOf(JUnit5Mission mission) {
         TestPlan testPlan = launcher.discover(mission.request());
-        return JunitMissions.representationFrom(Block.idAndText(mission.name(), mission.name()), testPlan);
+        return Junit5Missions.representationFrom(Block.idAndText(mission.name(), mission.name()), testPlan);
     }
 
 

@@ -9,7 +9,7 @@ import org.molr.commons.domain.MissionRepresentation;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class JunitMissions {
+public class Junit5Missions {
 
     public static final MissionRepresentation representationFrom(Block rootBlock, TestPlan testPlan) {
         return new TestPlanConverter(rootBlock, testPlan).toMissionRepresentation();

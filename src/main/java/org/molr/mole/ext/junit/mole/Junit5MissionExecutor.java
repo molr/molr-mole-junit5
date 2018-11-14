@@ -13,10 +13,9 @@ import org.molr.mole.core.tree.ConcurrentMissionOutputCollector;
 import org.molr.mole.core.tree.MissionExecutor;
 import org.molr.mole.core.tree.MissionOutputCollector;
 import org.molr.mole.core.tree.tracking.TreeTracker;
-import org.molr.mole.ext.junit.util.JunitMissions;
+import org.molr.mole.ext.junit.util.Junit5Missions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.StringUtils;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.ReplayProcessor;
 import reactor.core.scheduler.Schedulers;
@@ -145,7 +144,7 @@ public class Junit5MissionExecutor implements MissionExecutor {
             }
 
             missionRepresentation = ImmutableMissionRepresentation.builder(missionRepresentation)
-                    .parentToChild(parentBlock.get(), JunitMissions.blockFrom(testIdentifier))
+                    .parentToChild(parentBlock.get(), Junit5Missions.blockFrom(testIdentifier))
                     .build();
 
             resultTracker = TreeTracker.create(missionRepresentation, this.resultTracker);
@@ -183,7 +182,7 @@ public class Junit5MissionExecutor implements MissionExecutor {
 
         @Override
         public void executionStarted(TestIdentifier testIdentifier) {
-            Block block = JunitMissions.blockFrom(testIdentifier);
+            Block block = Junit5Missions.blockFrom(testIdentifier);
             runStateTracker.put(block, RunState.RUNNING);
             cursor.set(block);
             publishState();
@@ -191,7 +190,7 @@ public class Junit5MissionExecutor implements MissionExecutor {
 
         @Override
         public void executionFinished(TestIdentifier testIdentifier, TestExecutionResult testExecutionResult) {
-            Block block = JunitMissions.blockFrom(testIdentifier);
+            Block block = Junit5Missions.blockFrom(testIdentifier);
             runStateTracker.put(block, RunState.FINISHED);
             if (testIdentifier.isTest()) {
                 synchronized (representationLock) {

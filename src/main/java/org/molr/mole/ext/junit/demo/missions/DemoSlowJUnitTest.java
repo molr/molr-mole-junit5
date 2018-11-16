@@ -19,7 +19,7 @@ public class DemoSlowJUnitTest {
         Assertions.assertTrue(true);
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name="Time equals {0}?")
     @ValueSource(longs = {500, 1000, 2000})
     public void parametrized(long millis) throws InterruptedException {
         Thread.sleep(2000);

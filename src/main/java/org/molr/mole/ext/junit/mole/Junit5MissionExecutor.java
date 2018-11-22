@@ -13,6 +13,7 @@ import org.molr.mole.core.tree.ConcurrentMissionOutputCollector;
 import org.molr.mole.core.tree.MissionExecutor;
 import org.molr.mole.core.tree.MissionOutputCollector;
 import org.molr.mole.core.tree.tracking.TreeTracker;
+import org.molr.mole.core.utils.Exceptions;
 import org.molr.mole.ext.junit.util.Junit5Missions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +22,6 @@ import reactor.core.publisher.ReplayProcessor;
 import reactor.core.scheduler.Schedulers;
 
 import javax.annotation.concurrent.GuardedBy;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -31,6 +30,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
+
+import static org.molr.commons.domain.Placeholders.THROWN;
 
 public class Junit5MissionExecutor implements MissionExecutor {
 
@@ -197,18 +198,10 @@ public class Junit5MissionExecutor implements MissionExecutor {
                     resultTracker.push(block, resultFrom(testExecutionResult));
                 }
             }
-            testExecutionResult.getThrowable().ifPresent(t -> outputCollector.put(block, "throwable", stackTraceFrom(t)));
+            testExecutionResult.getThrowable().ifPresent(t -> outputCollector.put(block, THROWN, Exceptions.stackTraceFrom(t)));
             publishState();
         }
     }
-
-    private static String stackTraceFrom(Throwable t) {
-        StringWriter sw = new StringWriter();
-        PrintWriter pw = new PrintWriter(sw);
-        t.printStackTrace(pw);
-        return sw.toString();
-    }
-
 
     private static Result resultFrom(TestExecutionResult junitResult) {
         switch (junitResult.getStatus()) {

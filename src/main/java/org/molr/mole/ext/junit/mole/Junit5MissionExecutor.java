@@ -120,13 +120,17 @@ public class Junit5MissionExecutor implements MissionExecutor {
     }
 
     private void publishState() {
-        MissionState.Builder builder = MissionState.builder();
-        builder.add(singleStrand, strandRunState.get(), cursor.get(), allowedCommands());
+        stateSink.onNext(actualState());
+    }
+
+    private MissionState actualState() {
         synchronized (representationLock) {
+            MissionState.Builder builder = MissionState.builder(resultTracker.resultFor(missionRepresentation.rootBlock()));
+            builder.add(singleStrand, strandRunState.get(), cursor.get(), allowedCommands());
             resultTracker.blockResults().entrySet().forEach(e -> builder.blockResult(e.getKey(), e.getValue()));
+            runStateTracker.entrySet().forEach(e -> builder.blockRunState(e.getKey(), e.getValue()));
+            return builder.build();
         }
-        runStateTracker.entrySet().forEach(e -> builder.blockRunState(e.getKey(), e.getValue()));
-        stateSink.onNext(builder.build());
     }
 
     private Set<StrandCommand> allowedCommands() {

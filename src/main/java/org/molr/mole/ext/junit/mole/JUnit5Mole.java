@@ -30,7 +30,7 @@ public class JUnit5Mole extends AbstractJavaMole {
 
     private MissionRepresentation representationOf(JUnit5Mission mission) {
         TestPlan testPlan = launcher.discover(mission.request());
-        return Junit5Missions.representationFrom(Block.idAndText(mission.name(), mission.name()), testPlan);
+        return Junit5Missions.representationFrom(mission.name(), testPlan);
     }
 
 

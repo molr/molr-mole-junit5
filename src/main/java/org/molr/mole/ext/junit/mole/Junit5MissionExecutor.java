@@ -119,6 +119,11 @@ public class Junit5MissionExecutor implements MissionExecutor {
         }
     }
 
+    @Override
+    public void instructRoot(StrandCommand command) {
+        instruct(singleStrand, command);
+    }
+
     private void publishState() {
         stateSink.onNext(actualState());
     }

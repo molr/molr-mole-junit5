@@ -4,7 +4,6 @@ import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.TestPlan;
 import org.junit.platform.launcher.core.LauncherFactory;
 import org.molr.commons.domain.Mission;
-import org.molr.commons.domain.MissionHandle;
 import org.molr.commons.domain.MissionParameterDescription;
 import org.molr.commons.domain.MissionRepresentation;
 import org.molr.mole.core.tree.AbstractJavaMole;
@@ -13,7 +12,6 @@ import org.molr.mole.ext.junit.util.Junit5Missions;
 
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 import static java.util.stream.Collectors.toMap;
 
@@ -23,8 +21,6 @@ public class JUnit5Mole extends AbstractJavaMole {
 
     private final Map<Mission, JUnit5Mission> missions;
     private final Map<Mission, MissionRepresentation> missionRepresentations;
-    private final Map<MissionHandle, Junit5MissionExecutor> missionLaunchers = new ConcurrentHashMap<>();
-
 
     public JUnit5Mole(Set<JUnit5Mission> missions) {
         this.missions = missions.stream().collect(toMap(m -> new Mission(m.name()), m -> m));

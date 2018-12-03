@@ -25,11 +25,11 @@ repositories {
 
 dependencies {
     dependencies {
-        compile 'org.molr:molr-commons:+'
-        compile 'org.molr:molr-mole-core:+'
+        compile group: 'org.molr', name: 'molr-mole-core', version: molrVersion
+        compile group: 'org.molr', name: 'molr-commons', version: molrVersion
 
         /* to be able to run the server */
-        compile 'org.molr:molr-agency-server:+'
+        compile group: 'org.molr', name: 'molr-agency-server', version: molrVersion
 
         /* Note: This has to be available at runtime, as the Mole needs it to run junit tests */
         compile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.1'

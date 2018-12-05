@@ -39,12 +39,12 @@ public class JUnit5Mole extends AbstractJavaMole {
     }
 
     @Override
-    public MissionRepresentation representationOf(Mission mission) {
+    public MissionRepresentation missionRepresentationOf(Mission mission) {
         return this.missionRepresentations.get(mission);
     }
 
     @Override
-    public MissionParameterDescription parameterDescriptionOf(Mission mission) {
+    public MissionParameterDescription missionParameterDescriptionOf(Mission mission) {
         return MissionParameterDescription.empty();
     }
 

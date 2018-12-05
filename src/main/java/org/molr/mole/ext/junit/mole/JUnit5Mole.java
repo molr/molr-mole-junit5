@@ -49,7 +49,7 @@ public class JUnit5Mole extends AbstractJavaMole {
     }
 
     @Override
-    protected MissionExecutor instantiate(Mission mission, Map<String, Object> params) {
+    protected MissionExecutor executorFor(Mission mission, Map<String, Object> params) {
         return new Junit5MissionExecutor(missions.get(mission), missionRepresentations.get(mission));
     }
 

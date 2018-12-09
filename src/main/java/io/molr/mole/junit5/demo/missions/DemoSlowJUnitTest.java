@@ -1,4 +1,4 @@
-package org.molr.mole.ext.junit.demo.missions;
+package io.molr.mole.junit5.demo.missions;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

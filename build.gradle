@@ -9,7 +9,7 @@ apply plugin: 'idea'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 
-group = "org.molr"
+group = "io.molr"
 
 repositories {
     repositories {
@@ -26,11 +26,11 @@ repositories {
 
 dependencies {
     dependencies {
-        compile group: 'org.molr', name: 'molr-mole-core', version: molrVersion
-        compile group: 'org.molr', name: 'molr-commons', version: molrVersion
+        compile group: 'io.molr', name: 'molr-mole-core', version: molrVersion
+        compile group: 'io.molr', name: 'molr-commons', version: molrVersion
 
         /* to be able to run the server */
-        compile group: 'org.molr', name: 'molr-mole-server', version: molrVersion
+        compile group: 'io.molr', name: 'molr-mole-server', version: molrVersion
 
         /* Note: This has to be available at runtime, as the Mole needs it to run junit tests */
         compile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.1'

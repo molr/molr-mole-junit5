@@ -1,4 +1,4 @@
-package org.molr.molr.ext.junit;
+package io.molr.mole.junit5;
 
 import org.junit.jupiter.api.Test;
 import org.junit.platform.launcher.Launcher;
@@ -6,7 +6,7 @@ import org.junit.platform.launcher.LauncherDiscoveryRequest;
 import org.junit.platform.launcher.TestPlan;
 import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;
 import org.junit.platform.launcher.core.LauncherFactory;
-import org.molr.mole.ext.junit.demo.missions.DemoSlowJUnitTest;
+import io.molr.mole.junit5.demo.missions.DemoSlowJUnitTest;
 
 import static org.junit.platform.engine.discovery.DiscoverySelectors.selectClass;
 import static org.junit.platform.engine.discovery.DiscoverySelectors.selectPackage;

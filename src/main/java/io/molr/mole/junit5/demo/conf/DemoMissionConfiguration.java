@@ -1,6 +1,6 @@
-package org.molr.mole.ext.junit.demo.conf;
+package io.molr.mole.junit5.demo.conf;
 
-import org.molr.mole.ext.junit.mole.JUnit5Mission;
+import io.molr.mole.junit5.mole.JUnit5Mission;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

@@ -1,4 +1,4 @@
-package org.molr.mole.ext.junit.mole;
+package io.molr.mole.junit5.mole;
 
 import org.junit.platform.launcher.LauncherDiscoveryRequest;
 import org.junit.platform.launcher.core.LauncherDiscoveryRequestBuilder;

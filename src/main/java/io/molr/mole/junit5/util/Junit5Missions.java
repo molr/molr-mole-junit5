@@ -1,11 +1,11 @@
-package org.molr.mole.ext.junit.util;
+package io.molr.mole.junit5.util;
 
 import com.google.common.collect.Iterables;
 import org.junit.platform.launcher.TestIdentifier;
 import org.junit.platform.launcher.TestPlan;
-import org.molr.commons.domain.Block;
-import org.molr.commons.domain.ImmutableMissionRepresentation;
-import org.molr.commons.domain.MissionRepresentation;
+import io.molr.commons.domain.Block;
+import io.molr.commons.domain.ImmutableMissionRepresentation;
+import io.molr.commons.domain.MissionRepresentation;
 
 import java.util.Set;
 

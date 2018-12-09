@@ -1,4 +1,4 @@
-package org.molr.mole.ext.junit.mole;
+package io.molr.mole.junit5.mole;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
@@ -8,21 +8,21 @@ import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.launcher.TestIdentifier;
 import org.junit.platform.launcher.TestPlan;
 import org.junit.platform.launcher.core.LauncherFactory;
-import org.molr.commons.domain.Block;
-import org.molr.commons.domain.ImmutableMissionRepresentation;
-import org.molr.commons.domain.MissionOutput;
-import org.molr.commons.domain.MissionRepresentation;
-import org.molr.commons.domain.MissionState;
-import org.molr.commons.domain.Result;
-import org.molr.commons.domain.RunState;
-import org.molr.commons.domain.Strand;
-import org.molr.commons.domain.StrandCommand;
-import org.molr.commons.util.Exceptions;
-import org.molr.mole.core.tree.ConcurrentMissionOutputCollector;
-import org.molr.mole.core.tree.MissionExecutor;
-import org.molr.mole.core.tree.MissionOutputCollector;
-import org.molr.mole.core.tree.tracking.TreeTracker;
-import org.molr.mole.ext.junit.util.Junit5Missions;
+import io.molr.commons.domain.Block;
+import io.molr.commons.domain.ImmutableMissionRepresentation;
+import io.molr.commons.domain.MissionOutput;
+import io.molr.commons.domain.MissionRepresentation;
+import io.molr.commons.domain.MissionState;
+import io.molr.commons.domain.Result;
+import io.molr.commons.domain.RunState;
+import io.molr.commons.domain.Strand;
+import io.molr.commons.domain.StrandCommand;
+import io.molr.commons.util.Exceptions;
+import io.molr.mole.core.tree.ConcurrentMissionOutputCollector;
+import io.molr.mole.core.tree.MissionExecutor;
+import io.molr.mole.core.tree.MissionOutputCollector;
+import io.molr.mole.core.tree.tracking.TreeTracker;
+import io.molr.mole.junit5.util.Junit5Missions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Flux;
@@ -39,7 +39,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static org.molr.commons.domain.Placeholders.THROWN;
+import static io.molr.commons.domain.Placeholders.THROWN;
 
 public class Junit5MissionExecutor implements MissionExecutor {
 

@@ -1,14 +1,14 @@
-package org.molr.mole.ext.junit.mole;
+package io.molr.mole.junit5.mole;
 
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.TestPlan;
 import org.junit.platform.launcher.core.LauncherFactory;
-import org.molr.commons.domain.Mission;
-import org.molr.commons.domain.MissionParameterDescription;
-import org.molr.commons.domain.MissionRepresentation;
-import org.molr.mole.core.tree.AbstractJavaMole;
-import org.molr.mole.core.tree.MissionExecutor;
-import org.molr.mole.ext.junit.util.Junit5Missions;
+import io.molr.commons.domain.Mission;
+import io.molr.commons.domain.MissionParameterDescription;
+import io.molr.commons.domain.MissionRepresentation;
+import io.molr.mole.core.tree.AbstractJavaMole;
+import io.molr.mole.core.tree.MissionExecutor;
+import io.molr.mole.junit5.util.Junit5Missions;
 
 import java.util.Map;
 import java.util.Set;

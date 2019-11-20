@@ -92,7 +92,9 @@ jacocoTestReport {
 
 if (project['DEPLOYMENT']) {
     println "Applying deployment scripts for ${project.name}"
-    apply from: '../gradle/bintray-deploy.gradle'
+    apply plugin: 'maven-publish'
+    apply plugin: 'com.jfrog.bintray'
+    apply from: 'https://raw.githubusercontent.com/ossgang/gradle-scripts/master/deployment/bintray-deploy.gradle'
 }
 
 

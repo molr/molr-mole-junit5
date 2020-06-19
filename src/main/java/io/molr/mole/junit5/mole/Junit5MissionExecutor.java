@@ -2,21 +2,13 @@ package io.molr.mole.junit5.mole;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
+import io.molr.commons.domain.*;
 import org.junit.platform.engine.TestExecutionResult;
 import org.junit.platform.launcher.Launcher;
 import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.launcher.TestIdentifier;
 import org.junit.platform.launcher.TestPlan;
 import org.junit.platform.launcher.core.LauncherFactory;
-import io.molr.commons.domain.Block;
-import io.molr.commons.domain.ImmutableMissionRepresentation;
-import io.molr.commons.domain.MissionOutput;
-import io.molr.commons.domain.MissionRepresentation;
-import io.molr.commons.domain.MissionState;
-import io.molr.commons.domain.Result;
-import io.molr.commons.domain.RunState;
-import io.molr.commons.domain.Strand;
-import io.molr.commons.domain.StrandCommand;
 import io.molr.commons.util.Exceptions;
 import io.molr.mole.core.tree.ConcurrentMissionOutputCollector;
 import io.molr.mole.core.tree.MissionExecutor;
@@ -130,6 +122,16 @@ public class Junit5MissionExecutor implements MissionExecutor {
     @Override
     public void instructRoot(StrandCommand command) {
         instruct(singleStrand, command);
+    }
+
+    @Override
+    public void instructBlock(String blockID, BlockCommand command) {
+        // TODO check how to implement (if at all)
+    }
+
+    @Override
+    public void dispose() {
+        // TODO check how to implement (if at all)
     }
 
     private void publishState() {

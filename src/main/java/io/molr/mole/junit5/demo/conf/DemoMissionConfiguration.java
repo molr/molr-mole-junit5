@@ -9,7 +9,7 @@ public class DemoMissionConfiguration {
 
     @Bean
     public JUnit5Mission demoMission() {
-        return JUnit5Mission.fromNameAndPackage("Molr Demo Tests","org.molr.mole.ext.junit.demo.missions");
+        return JUnit5Mission.fromNameAndPackage("Molr Demo Tests","io.molr.mole.junit5.demo.missions");
     }
 
 }
